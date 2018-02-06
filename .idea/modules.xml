@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CafeApp.iml" filepath="$PROJECT_DIR$/CafeApp.iml" />
+      <module fileurl="file://C:\Users\Android.REDES\Downloads\GitanoAppV2-master\CafeApp.iml" filepath="C:\Users\Android.REDES\Downloads\GitanoAppV2-master\CafeApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GitanoAppV2-master.iml" filepath="$PROJECT_DIR$/GitanoAppV2-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
