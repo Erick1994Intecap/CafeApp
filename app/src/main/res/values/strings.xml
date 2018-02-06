@@ -145,11 +145,22 @@
     <string name="desc_healthy_sandwinh_vegetariano">Descripcion Sandwich Vegetariano</string>
 
     <!-- Comida Postres -->
-    <string name="healthy_cesar_wrap">Cesar Wrap</string>
-    <string name="healthy_ensalada_cesar">Ensalada Cesar</string>
-    <string name="healthy_emsalada_chicken_mustrad">Ensalada Chicken Mustrad</string>
-    <string name="healthy_ensalada_veggie">Ensalada Veggie</string>
-    <string name="healthy_ensalada_verano">Ensalada Verano</string>
-    <string name="healthy_sandwich_jardinero">Sandwich Jardinero</string>
-    <string name="healthy_sandwinh_vegetariano">Sandwich Vegetariano</string>
+    <string name="postres_brazo_gitano">Brazo Gitano</string>
+    <string name="postres_brownie">Brownie</string>
+    <string name="postres_galletas">Galletas</string>
+    <string name="postres_gipsy">Gipsy</string>
+    <string name="postres_naked_cake_ch">Naked Cake CH</string>
+    <string name="postres_pastel_de_moka">Pastel De Moka</string>
+    <string name="postres_pie_de_queso">Pie de Queso</string>
+    <string name="postres_zepelin">Zepelin</string>
+
+    <!-- Descipcion Comida Postres -->
+    <string name="desc_postres_brazo_gitano">Descipcon Brazo Gitano</string>
+    <string name="desc_postres_brownie">Descipcon Brownie</string>
+    <string name="desc_postres_galletas">Descipcon Galletas</string>
+    <string name="desc_postres_gipsy">Descipcon Gipsy</string>
+    <string name="desc_postres_naked_cake_ch">Descipcon Naked Cake CH</string>
+    <string name="desc_postres_pastel_de_moka">Descipcon Pastel De Moka</string>
+    <string name="desc_postres_pie_de_queso">Descipcon Pie de Queso</string>
+    <string name="desc_postres_zepelin">Descipcon Zepelin</string>
 </resources>

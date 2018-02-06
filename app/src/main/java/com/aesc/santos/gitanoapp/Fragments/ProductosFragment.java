@@ -1,5 +1,6 @@
 package com.aesc.santos.gitanoapp.Fragments;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.aesc.santos.gitanoapp.Adaptadores.AdaptadorProductos;
 import com.aesc.santos.gitanoapp.Entidades.ProductosVo;
+import com.aesc.santos.gitanoapp.Intefaces.IComunicaFragments;
 import com.aesc.santos.gitanoapp.R;
 
 import java.util.ArrayList;
@@ -40,6 +42,9 @@ public class ProductosFragment extends Fragment {
 
     ArrayList<ProductosVo> listaProductos;
     RecyclerView recyclerProductos;
+
+    Activity activity;
+    IComunicaFragments interfaceComunicaFragments;
 
     public ProductosFragment() {
         // Required empty public constructor
@@ -82,7 +87,7 @@ public class ProductosFragment extends Fragment {
         recyclerProductos = view.findViewById(R.id.recyclerid);
         recyclerProductos.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        siSeleccionEsPostres();
+        llenarListaProductos();
 
         AdaptadorProductos adapter = new AdaptadorProductos(listaProductos);
 
@@ -92,6 +97,8 @@ public class ProductosFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getActivity(), "Seleccionaste: " + listaProductos.get(recyclerProductos.getChildAdapterPosition(view)).getNombre(), Toast.LENGTH_SHORT).show();
+
+                interfaceComunicaFragments.enviarProducto(listaProductos.get(recyclerProductos.getChildAdapterPosition(view)));
             }
         });
 
@@ -180,13 +187,14 @@ public class ProductosFragment extends Fragment {
     }
 
     private void siSeleccionEsPostres() {
-        listaProductos.add(new ProductosVo(getString(R.string.producto_nombre_caliente),getString(R.string.producto_desp_caliente),R.drawable.caliente));
-        listaProductos.add(new ProductosVo(getString(R.string.producto_nombre_fria),getString(R.string.producto_desp_fria),R.drawable.fria));
-        listaProductos.add(new ProductosVo(getString(R.string.producto_nombre_naturales),getString(R.string.producto_desp_naturales),R.drawable.natural));
-        listaProductos.add(new ProductosVo(getString(R.string.producto_nombre_desayuno),getString(R.string.producto_desp_desayuno),R.drawable.desayuno));
-        listaProductos.add(new ProductosVo(getString(R.string.producto_nombre_clasico),getString(R.string.producto_desp_clasico),R.drawable.clasica));
-        listaProductos.add(new ProductosVo(getString(R.string.producto_nombre_healthy),getString(R.string.producto_desp_healthy),R.drawable.healthy));
-        listaProductos.add(new ProductosVo(getString(R.string.producto_nombre_postre),getString(R.string.producto_desp_postre),R.drawable.postre));
+        listaProductos.add(new ProductosVo(getString(R.string.postres_brazo_gitano),getString(R.string.desc_postres_brazo_gitano),R.drawable.p_brazo_gitano));
+        listaProductos.add(new ProductosVo(getString(R.string.postres_brownie),getString(R.string.desc_postres_brownie),R.drawable.p_brownie));
+        listaProductos.add(new ProductosVo(getString(R.string.postres_galletas),getString(R.string.desc_postres_galletas),R.drawable.p_galletas));
+        listaProductos.add(new ProductosVo(getString(R.string.postres_gipsy),getString(R.string.desc_postres_gipsy),R.drawable.p_gipsy));
+        listaProductos.add(new ProductosVo(getString(R.string.postres_naked_cake_ch),getString(R.string.desc_postres_naked_cake_ch),R.drawable.p_naked_cake_ch));
+        listaProductos.add(new ProductosVo(getString(R.string.postres_pastel_de_moka),getString(R.string.desc_postres_pastel_de_moka),R.drawable.p_pastel_de_moka));
+        listaProductos.add(new ProductosVo(getString(R.string.postres_pie_de_queso),getString(R.string.desc_postres_pie_de_queso),R.drawable.p_pie_de_queso));
+        listaProductos.add(new ProductosVo(getString(R.string.postres_zepelin),getString(R.string.desc_postres_zepelin),R.drawable.p_zepelines));
 
     }
 
@@ -200,6 +208,12 @@ public class ProductosFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+
+        if (context instanceof Activity){
+            this.activity = (Activity) context;
+            interfaceComunicaFragments = (IComunicaFragments) this.activity;
+        }
+
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {

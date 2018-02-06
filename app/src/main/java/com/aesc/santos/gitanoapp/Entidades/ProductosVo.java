@@ -1,10 +1,12 @@
 package com.aesc.santos.gitanoapp.Entidades;
 
+import java.io.Serializable;
+
 /**
  * Created by Android on 2/5/2018.
  */
 
-public class ProductosVo {
+public class ProductosVo implements Serializable{
     private String nombre;
     private String descripcion;
     private int imageid;

@@ -18,11 +18,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.aesc.santos.gitanoapp.Entidades.ProductosVo;
 import com.aesc.santos.gitanoapp.Fragments.NotificacionesFragment;
+import com.aesc.santos.gitanoapp.Fragments.ProductoDetalleFragment;
 import com.aesc.santos.gitanoapp.Fragments.ProductosFragment;
 import com.aesc.santos.gitanoapp.Fragments.PromocionesFragment;
 import com.aesc.santos.gitanoapp.Fragments.PuntosFragment;
 import com.aesc.santos.gitanoapp.Fragments.TiendaFragment;
+import com.aesc.santos.gitanoapp.Intefaces.IComunicaFragments;
 
 public class BodyActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
@@ -30,9 +33,12 @@ public class BodyActivity extends AppCompatActivity
         ProductosFragment.OnFragmentInteractionListener,
         PromocionesFragment.OnFragmentInteractionListener,
         PuntosFragment.OnFragmentInteractionListener,
-        TiendaFragment.OnFragmentInteractionListener {
+        TiendaFragment.OnFragmentInteractionListener, IComunicaFragments {
 
     private static final String TAG = "BodyActivity";
+
+    ProductoDetalleFragment mProductoDetalleFragment;
+    PuntosFragment mPuntosFragment;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +55,9 @@ public class BodyActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        mPuntosFragment = new PuntosFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container,mPuntosFragment).commit();
     }
 
     @Override
@@ -111,5 +120,17 @@ public class BodyActivity extends AppCompatActivity
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    @Override
+    public void enviarProducto(ProductosVo productos) {
+        mProductoDetalleFragment = new ProductoDetalleFragment();
+
+        Bundle bundleEnvio = new Bundle();
+        bundleEnvio.putSerializable("objecto", productos);
+        mProductoDetalleFragment.setArguments(bundleEnvio);
+
+        //Cargar el fragmente en el activity
+        getSupportFragmentManager().beginTransaction().replace(R.id.container,mProductoDetalleFragment).addToBackStack(null).commit();
     }
 }
