@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,7 @@ public class ProductosFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private static final String TAG = "ProductosFragment";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -96,9 +98,10 @@ public class ProductosFragment extends Fragment {
         adapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "Seleccionaste: " + listaProductos.get(recyclerProductos.getChildAdapterPosition(view)).getNombre(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "Seleccionaste: " + listaProductos.get(recyclerProductos.getChildAdapterPosition(view)).getNombre(), Toast.LENGTH_SHORT).show();
 
-                interfaceComunicaFragments.enviarProducto(listaProductos.get(recyclerProductos.getChildAdapterPosition(view)));
+                //Log.d(TAG, "onClick: Estos dastos: "+ listaProductos.get(recyclerProductos.getChildAdapterPosition(view)).getNombre());
+                interfaceComunicaFragments.enviarProducto(listaProductos.get(recyclerProductos.getChildAdapterPosition(view)).getNombre());
             }
         });
 
