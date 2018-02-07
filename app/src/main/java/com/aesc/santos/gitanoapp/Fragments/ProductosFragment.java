@@ -101,7 +101,7 @@ public class ProductosFragment extends Fragment {
                 //Toast.makeText(getActivity(), "Seleccionaste: " + listaProductos.get(recyclerProductos.getChildAdapterPosition(view)).getNombre(), Toast.LENGTH_SHORT).show();
 
                 //Log.d(TAG, "onClick: Estos dastos: "+ listaProductos.get(recyclerProductos.getChildAdapterPosition(view)).getNombre());
-                interfaceComunicaFragments.enviarProducto(listaProductos.get(recyclerProductos.getChildAdapterPosition(view)).getNombre());
+                interfaceComunicaFragments.enviarProducto(recyclerProductos.getChildAdapterPosition(view));
             }
         });
 

@@ -92,7 +92,7 @@ public class BodyActivity extends AppCompatActivity
             miFragment = new PromocionesFragment();
             fragmentSeleccionado=true;
             Log.d(TAG, "onNavigationItemSelected: PromocinesFragment");
-        } else if (id == R.id.notificacion) {
+        } else if (id == R.id.favoritos) {
             miFragment = new NotificacionesFragment();
             fragmentSeleccionado=true;
             Log.d(TAG, "onNavigationItemSelected: NotificacionesFragment");
@@ -118,15 +118,15 @@ public class BodyActivity extends AppCompatActivity
     }
 
     @Override
-    public void enviarProducto(String name) {
+    public void enviarProducto(int position) {
         mProductoDetalleFragment = new ProductoDetalleFragment();
 
         Bundle bundleEnvio = new Bundle();
-        bundleEnvio.putString("objecto", name);
+        bundleEnvio.putInt("key", position);
         mProductoDetalleFragment.setArguments(bundleEnvio);
 
         Toast.makeText(this, "ver" + bundleEnvio.toString(), Toast.LENGTH_SHORT).show();
         //Cargar el fragmente en el activity
-        //getSupportFragmentManager().beginTransaction().replace(R.id.container,mProductoDetalleFragment).addToBackStack(null).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container,mProductoDetalleFragment).addToBackStack(null).commit();
     }
 }

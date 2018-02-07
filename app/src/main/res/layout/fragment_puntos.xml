@@ -4,5 +4,20 @@
     android:layout_height="match_parent"
     tools:context="com.aesc.santos.gitanoapp.Fragments.PuntosFragment">
 
-    <include layout="@layout/center_layout_user_puntos"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/center_layout_user_puntos"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
 </RelativeLayout>

@@ -8,7 +8,7 @@ import com.aesc.santos.gitanoapp.Entidades.ProductosVo;
 
 public interface IComunicaFragments {
 
-    public void enviarProducto(String name);
+    public void enviarProducto(int position);
 
 
 }

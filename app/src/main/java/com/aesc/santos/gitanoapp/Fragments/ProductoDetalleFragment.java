@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.aesc.santos.gitanoapp.R;
 
@@ -24,12 +26,15 @@ public class ProductoDetalleFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private int position;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
 
+    private TextView ver;
     public ProductoDetalleFragment() {
         // Required empty public constructor
     }
@@ -56,8 +61,7 @@ public class ProductoDetalleFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            position = getArguments().getInt("key",0);
         }
     }
 
@@ -65,7 +69,13 @@ public class ProductoDetalleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_producto_detalle, container, false);
+
+        View view =inflater.inflate(R.layout.fragment_producto_detalle, container, false);
+        ver = view.findViewById(R.id.hola);
+        ver.setText(String.valueOf(position));
+        //Toast.makeText(getContext(), "Ver: " + position, Toast.LENGTH_SHORT).show();
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -75,22 +85,6 @@ public class ProductoDetalleFragment extends Fragment {
         }
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
 
     /**
      * This interface must be implemented by activities that contain this

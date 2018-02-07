@@ -16,8 +16,8 @@
         <item android:title="Promociones"
             android:id="@+id/promociones"/>
 
-        <item android:title="Notificaciones"
-            android:id="@+id/notificacion"/>
+        <item android:title="Favoritos"
+            android:id="@+id/favoritos"/>
     </group>
 
     <item android:title="">
