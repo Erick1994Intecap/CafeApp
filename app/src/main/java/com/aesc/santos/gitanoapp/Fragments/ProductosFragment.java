@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 //import com.aesc.santos.gitanoapp.Adaptadores.AdaptadorProductos;
 import com.aesc.santos.gitanoapp.Adaptadores.DataAdapter;
@@ -67,7 +68,7 @@ public class ProductosFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    ArrayList<ProductosVo> listaProductos;
+    ArrayList<AndroidVersion> androidVersions;
     RecyclerView recyclerProductos;
 
     Activity activity;
@@ -110,28 +111,26 @@ public class ProductosFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_productos, container, false);
 
-        listaProductos = new ArrayList<>();
+        androidVersions = new ArrayList<>();
         recyclerProductos = view.findViewById(R.id.recyclerid);
-        recyclerProductos.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerProductos.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        ArrayList androidVersions = prepareData();
+        final ArrayList androidVersions = prepareData();
         DataAdapter adapter = new DataAdapter(getContext(),androidVersions);
         recyclerProductos.setAdapter(adapter);
 
 
         //AdaptadorProductos adapter = new AdaptadorProductos(listaProductos);
 
-        recyclerProductos.setAdapter(adapter);
+    recyclerProductos.setAdapter(adapter);
+    adapter.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Toast.makeText(getContext(), "Selecc"+androidVersions.get(recyclerProductos.getChildAdapterPosition(view)), Toast.LENGTH_SHORT).show();
+        }
+    });
 
-        adapter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Toast.makeText(getActivity(), "Seleccionaste: " + listaProductos.get(recyclerProductos.getChildAdapterPosition(view)).getNombre(), Toast.LENGTH_SHORT).show();
 
-                //Log.d(TAG, "onClick: Estos dastos: "+ listaProductos.get(recyclerProductos.getChildAdapterPosition(view)).getNombre());
-                interfaceComunicaFragments.enviarProducto(recyclerProductos.getChildAdapterPosition(view));
-            }
-        });
 
         return view;
     }
@@ -148,7 +147,7 @@ public class ProductosFragment extends Fragment {
         return android_version;
     }
 
-    private void llenarListaProductos() {
+   /* private void llenarListaProductos() {
         listaProductos.add(new ProductosVo(getString(R.string.producto_nombre_caliente),getString(R.string.producto_desp_caliente),R.drawable.caliente));
         listaProductos.add(new ProductosVo(getString(R.string.producto_nombre_fria),getString(R.string.producto_desp_fria),R.drawable.fria));
         listaProductos.add(new ProductosVo(getString(R.string.producto_nombre_naturales),getString(R.string.producto_desp_naturales),R.drawable.natural));
@@ -157,7 +156,7 @@ public class ProductosFragment extends Fragment {
         listaProductos.add(new ProductosVo(getString(R.string.producto_nombre_healthy),getString(R.string.producto_desp_healthy),R.drawable.healthy));
         listaProductos.add(new ProductosVo(getString(R.string.producto_nombre_postre),getString(R.string.producto_desp_postre),R.drawable.postre));
 
-    }
+    }*/
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
