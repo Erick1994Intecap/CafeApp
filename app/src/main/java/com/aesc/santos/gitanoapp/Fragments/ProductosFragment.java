@@ -7,13 +7,13 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.aesc.santos.gitanoapp.Adaptadores.AdaptadorProductos;
+//import com.aesc.santos.gitanoapp.Adaptadores.AdaptadorProductos;
+import com.aesc.santos.gitanoapp.Adaptadores.DataAdapter;
+import com.aesc.santos.gitanoapp.Entidades.AndroidVersion;
 import com.aesc.santos.gitanoapp.Entidades.ProductosVo;
 import com.aesc.santos.gitanoapp.Intefaces.IComunicaFragments;
 import com.aesc.santos.gitanoapp.R;
@@ -29,6 +29,31 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class ProductosFragment extends Fragment {
+    private final String android_version_names[] = {
+            "Donut",
+            "Eclair",
+            "Froyo",
+            "Gingerbread",
+            "Honeycomb",
+            "Ice Cream Sandwich",
+            "Jelly Bean",
+            "KitKat",
+            "Lollipop",
+            "Marshmallow"
+    };
+
+    private final String android_image_urls[] = {
+            "https://cdn.memegenerator.es/imagenes/memes/full/0/52/529283.jpg",
+            "https://www.memegenerator.es/meme/529283",
+            "https://api.learn2crack.com/android/images/froyo.png",
+            "https://api.learn2crack.com/android/images/ginger.png",
+            "https://api.learn2crack.com/android/images/honey.png",
+            "https://api.learn2crack.com/android/images/icecream.png",
+            "https://api.learn2crack.com/android/images/jellybean.png",
+            "https://api.learn2crack.com/android/images/kitkat.png",
+            "https://api.learn2crack.com/android/images/lollipop.png",
+            "https://api.learn2crack.com/android/images/marshmallow.png"
+    };
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -89,9 +114,12 @@ public class ProductosFragment extends Fragment {
         recyclerProductos = view.findViewById(R.id.recyclerid);
         recyclerProductos.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        llenarListaProductos();
+        ArrayList androidVersions = prepareData();
+        DataAdapter adapter = new DataAdapter(getContext(),androidVersions);
+        recyclerProductos.setAdapter(adapter);
 
-        AdaptadorProductos adapter = new AdaptadorProductos(listaProductos);
+
+        //AdaptadorProductos adapter = new AdaptadorProductos(listaProductos);
 
         recyclerProductos.setAdapter(adapter);
 
@@ -106,6 +134,18 @@ public class ProductosFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private ArrayList prepareData() {
+
+        ArrayList android_version = new ArrayList<>();
+        for(int i=0;i<android_version_names.length;i++){
+            AndroidVersion androidVersion = new AndroidVersion();
+            androidVersion.setAndroid_version_name(android_version_names[i]);
+            androidVersion.setAndroid_image_url(android_image_urls[i]);
+            android_version.add(androidVersion);
+        }
+        return android_version;
     }
 
     private void llenarListaProductos() {

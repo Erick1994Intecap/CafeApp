@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.aesc.santos.gitanoapp.Entidades.AndroidVersion;
 import com.aesc.santos.gitanoapp.Fragments.NotificacionesFragment;
 import com.aesc.santos.gitanoapp.Fragments.ProductoDetalleFragment;
 import com.aesc.santos.gitanoapp.Fragments.ProductosFragment;
@@ -22,6 +23,8 @@ import com.aesc.santos.gitanoapp.Fragments.PuntosFragment;
 import com.aesc.santos.gitanoapp.Fragments.TiendaFragment;
 import com.aesc.santos.gitanoapp.Intefaces.IComunicaFragments;
 
+import java.util.ArrayList;
+
 public class BodyActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         NotificacionesFragment.OnFragmentInteractionListener,
@@ -29,6 +32,7 @@ public class BodyActivity extends AppCompatActivity
         PromocionesFragment.OnFragmentInteractionListener,
         PuntosFragment.OnFragmentInteractionListener,
         TiendaFragment.OnFragmentInteractionListener, IComunicaFragments {
+
 
     private static final String TAG = "BodyActivity";
 
