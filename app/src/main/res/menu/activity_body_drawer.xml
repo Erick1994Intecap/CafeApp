@@ -4,20 +4,23 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <item android:title="Productos"
-            android:id="@+id/productos"/>
-
-        <item android:title="Tiendas"
-            android:id="@+id/tienda"/>
 
         <item android:title="Puntos"
             android:id="@+id/punto"/>
+
+        <item android:title="Productos"
+            android:id="@+id/productos"/>
 
         <item android:title="Promociones"
             android:id="@+id/promociones"/>
 
         <item android:title="Favoritos"
             android:id="@+id/favoritos"/>
+
+        <item android:title="Tiendas"
+            android:id="@+id/tienda"/>
+
+
     </group>
 
     <item android:title="">

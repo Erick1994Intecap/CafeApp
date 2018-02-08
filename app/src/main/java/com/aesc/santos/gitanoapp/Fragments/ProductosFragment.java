@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,11 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class ProductosFragment extends Fragment {
+
+    private static final String TAG = "ProductosFragment";
+
+    private static final int NUM_COLUMNS = 2;
+
     private final String android_version_names[] = {
             "Donut",
             "Eclair",
@@ -38,29 +44,24 @@ public class ProductosFragment extends Fragment {
             "Honeycomb",
             "Ice Cream Sandwich",
             "Jelly Bean",
-            "KitKat",
-            "Lollipop",
-            "Marshmallow"
+            "KitKat"
     };
 
     private final String android_image_urls[] = {
-            "https://cdn.memegenerator.es/imagenes/memes/full/0/52/529283.jpg",
-            "https://www.memegenerator.es/meme/529283",
-            "https://api.learn2crack.com/android/images/froyo.png",
-            "https://api.learn2crack.com/android/images/ginger.png",
-            "https://api.learn2crack.com/android/images/honey.png",
-            "https://api.learn2crack.com/android/images/icecream.png",
-            "https://api.learn2crack.com/android/images/jellybean.png",
-            "https://api.learn2crack.com/android/images/kitkat.png",
-            "https://api.learn2crack.com/android/images/lollipop.png",
-            "https://api.learn2crack.com/android/images/marshmallow.png"
+            "http://adrax.hol.es/img_caffe/p_brazo_gitano.png",
+            "http://adrax.hol.es/img_caffe/p_brownie.png",
+            "http://adrax.hol.es/img_caffe/p_galletas.png",
+            "http://adrax.hol.es/img_caffe/p_gipsy.png",
+            "http://adrax.hol.es/img_caffe/p_naked_cake_ch.png",
+            "http://adrax.hol.es/img_caffe/p_pastel_de_moka.png",
+            "http://adrax.hol.es/img_caffe/p_pie_de_queso.png",
+            "http://adrax.hol.es/img_caffe/p_zepelines.png"
     };
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    private static final String TAG = "ProductosFragment";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -113,7 +114,8 @@ public class ProductosFragment extends Fragment {
 
         androidVersions = new ArrayList<>();
         recyclerProductos = view.findViewById(R.id.recyclerid);
-        recyclerProductos.setLayoutManager(new LinearLayoutManager(getContext()));
+        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(NUM_COLUMNS, LinearLayoutManager.VERTICAL);
+        recyclerProductos.setLayoutManager(staggeredGridLayoutManager);
 
         final ArrayList androidVersions = prepareData();
         DataAdapter adapter = new DataAdapter(getContext(),androidVersions);
@@ -126,7 +128,8 @@ public class ProductosFragment extends Fragment {
     adapter.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Toast.makeText(getContext(), "Selecc"+androidVersions.get(recyclerProductos.getChildAdapterPosition(view)), Toast.LENGTH_SHORT).show();
+            interfaceComunicaFragments.enviarProducto(recyclerProductos.getChildAdapterPosition(view));
+            //Toast.makeText(getContext(), "Selecc"+androidVersions.get(recyclerProductos.getChildAdapterPosition(view)), Toast.LENGTH_SHORT).show();
         }
     });
 

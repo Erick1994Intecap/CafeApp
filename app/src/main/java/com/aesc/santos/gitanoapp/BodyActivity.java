@@ -129,7 +129,7 @@ public class BodyActivity extends AppCompatActivity
         bundleEnvio.putInt("key", position);
         mProductoDetalleFragment.setArguments(bundleEnvio);
 
-        Toast.makeText(this, "ver" + bundleEnvio.toString(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "ver" + bundleEnvio.toString(), Toast.LENGTH_SHORT).show();
         //Cargar el fragmente en el activity
         getSupportFragmentManager().beginTransaction().replace(R.id.container,mProductoDetalleFragment).addToBackStack(null).commit();
     }

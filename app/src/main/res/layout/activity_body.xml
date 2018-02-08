@@ -18,10 +18,10 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/colorAccent"
+        android:background="@drawable/side_nav_other_back"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_body"
         app:menu="@menu/activity_body_drawer"
-        app:itemTextColor="#FFFFFF"/>
+        app:itemTextColor="@color/fuente"/>
 
 </android.support.v4.widget.DrawerLayout>

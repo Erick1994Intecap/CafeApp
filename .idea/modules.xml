@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/CafeApp.iml" filepath="$PROJECT_DIR$/.idea/CafeApp.iml" />
+      <module fileurl="file://C:\Users\Android.REDES\Downloads\CafeApp\.idea\CafeApp.iml" filepath="C:\Users\Android.REDES\Downloads\CafeApp\.idea\CafeApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\Android.REDES\Downloads\CafeApp\app\app.iml" filepath="C:\Users\Android.REDES\Downloads\CafeApp\app\app.iml" />
     </modules>
   </component>
 </project>

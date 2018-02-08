@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingBottom="35dp"
-    android:background="@color/probar">
+    android:background="@drawable/side_nav_other_back">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="80dp"
@@ -25,7 +25,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:textSize="15sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/fuente"/>
 
 
     <TextView
@@ -35,6 +36,7 @@
         android:id="@+id/tvNivel"
         android:layout_below="@+id/tvNameUser"
         android:layout_centerHorizontal="true"
-        android:textSize="11sp"/>
+        android:textSize="11sp"
+        android:textColor="@color/fuente"/>
 
 </RelativeLayout>

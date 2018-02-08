@@ -8,6 +8,6 @@
     tools:context="com.aesc.santos.gitanoapp.BodyActivity"
     tools:showIn="@layout/app_bar_body"
     android:id="@+id/container"
-    android:background="#fff">
+    android:background="@color/background">
 
 </android.support.constraint.ConstraintLayout>

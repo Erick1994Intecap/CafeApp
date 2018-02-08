@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 
+import com.aesc.santos.gitanoapp.Adaptadores.AdaptadorDetalle;
 import com.aesc.santos.gitanoapp.Entidades.ProductosVo;
 import com.aesc.santos.gitanoapp.R;
 
@@ -31,6 +33,7 @@ public class ProductoDetalleFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private static final String TAG = "ProductoDetalleFragment";
     private int position;
     ArrayList<ProductosVo> listaProductos;
     RecyclerView recyclerProductos;
@@ -87,11 +90,32 @@ public class ProductoDetalleFragment extends Fragment {
         recyclerProductos = view.findViewById(R.id.recyclerProductosSubMenu);
         recyclerProductos.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        siSeleccionEsCaliente();
+        if (position == 0){
+            Log.d(TAG, "onCreateView: Comida Caliente.");
+            siSeleccionEsCaliente();
+        }else if (position == 1){
+            Log.d(TAG, "onCreateView: Comida Fria");
+            siSeleccionEsFria();
+        }else if (position == 2){
+            Log.d(TAG, "onCreateView: Comida Natural");
+            siSeleccionEsNatural();
+        }else if (position == 3){
+            Log.d(TAG, "onCreateView: Desayunos");
+            siSeleccionEsDesayunos();
+        }else if (position == 4){
+            Log.d(TAG, "onCreateView: Comida Clisica");
+            siSeleccionEsClasicos();
+        }else if (position == 5){
+            Log.d(TAG, "onCreateView: Comida Healthy");
+            siSeleccionEsHealthy();
+        }else if (position == 6){
+            Log.d(TAG, "onCreateView: Comida Postres");
+            siSeleccionEsPostres();
+        }
 
-        //AdaptadorProductos adapter = new AdaptadorProductos(listaProductos);
+        AdaptadorDetalle adapter = new AdaptadorDetalle(listaProductos);
 
-        //recyclerProductos.setAdapter(adapter);
+        recyclerProductos.setAdapter(adapter);
 
         return view;
     }
