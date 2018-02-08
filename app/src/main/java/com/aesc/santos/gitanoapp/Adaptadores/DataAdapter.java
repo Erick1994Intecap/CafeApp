@@ -30,7 +30,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ProductosViewH
         this.context = context;
         this.android_versions = android_versions;
     }
-
+//----------Adaptador
 
     @Override
     public ProductosViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
