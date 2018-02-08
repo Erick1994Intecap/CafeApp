@@ -9,7 +9,7 @@ import java.io.Serializable;
 public class AndroidVersion implements Serializable {
     public String android_version_name;
     public String android_image_url;
-
+//Android
     public AndroidVersion() {
     }
 
