@@ -3,7 +3,6 @@ package com.aesc.santos.gitanoapp.Adaptadores;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +22,6 @@ import java.util.ArrayList;
 
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ProductosViewHolder> implements View.OnClickListener {
 
-    private static final String TAG = "DataAdapter";
     private ArrayList<AndroidVersion> android_versions;
     private Context context;
     private View.OnClickListener listener;
@@ -43,9 +41,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ProductosViewH
 
     @Override
     public void onBindViewHolder(ProductosViewHolder holder, int position) {
-        Log.d(TAG, "onBindViewHolder: cargando informacion");
-
-        holder.txtNombre.setText(android_versions.get(position).getAndroid_version_name());
+        holder.txtDescripcion.setText(android_versions.get(position).getAndroid_version_name());
         //--------------------------Libreria PICASSO para imagenes-------------------------------------------------
         Picasso.with(context).load(android_versions.get(position).getAndroid_image_url()).fit().error(R.mipmap.ic_launcher).into(holder.foto);
         //-----------------------------------------------------------------------------------------------------------
@@ -70,15 +66,15 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ProductosViewH
 
     public class ProductosViewHolder extends RecyclerView.ViewHolder {
 
-        TextView txtNombre;
+        TextView txtNombre, txtDescripcion;
         ImageView foto;
 
         public ProductosViewHolder(View itemView) {
             super(itemView);
 
-            txtNombre = itemView.findViewById(R.id.name_widget);
-            //txtDescripcion = itemView.findViewById(R.id.tvDescripcion);
-            foto = itemView.findViewById(R.id.imageview_widget);
+            //txtNombre = itemView.findViewById(R.id.tvNombre);
+            txtDescripcion = itemView.findViewById(R.id.tvDescripcion);
+            foto = itemView.findViewById(R.id.idImage);
         }
     }
 }

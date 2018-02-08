@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,20 +30,14 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class ProductosFragment extends Fragment {
-
-    private static final String TAG = "ProductosFragment";
-
-    private static final int NUM_COLUMNS = 2;
-
     private final String android_version_names[] = {
-            "Donut",
-            "Eclair",
-            "Froyo",
-            "Gingerbread",
-            "Honeycomb",
-            "Ice Cream Sandwich",
-            "Jelly Bean",
-            "KitKat"
+            "Bebidas Calientes",
+            "Bebidas Frias",
+            "Bebidas Naturales",
+            "Desayunos",
+            "Clasicos",
+            "healthy",
+            "postres"
     };
 
     private final String android_image_urls[] = {
@@ -54,14 +47,14 @@ public class ProductosFragment extends Fragment {
             "http://adrax.hol.es/img_caffe/p_gipsy.png",
             "http://adrax.hol.es/img_caffe/p_naked_cake_ch.png",
             "http://adrax.hol.es/img_caffe/p_pastel_de_moka.png",
-            "http://adrax.hol.es/img_caffe/p_pie_de_queso.png",
-            "http://adrax.hol.es/img_caffe/p_zepelines.png"
+            "http://adrax.hol.es/img_caffe/p_pie_de_queso.png"
     };
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private static final String TAG = "ProductosFragment";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -114,8 +107,7 @@ public class ProductosFragment extends Fragment {
 
         androidVersions = new ArrayList<>();
         recyclerProductos = view.findViewById(R.id.recyclerid);
-        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(NUM_COLUMNS, LinearLayoutManager.VERTICAL);
-        recyclerProductos.setLayoutManager(staggeredGridLayoutManager);
+        recyclerProductos.setLayoutManager(new LinearLayoutManager(getContext()));
 
         final ArrayList androidVersions = prepareData();
         DataAdapter adapter = new DataAdapter(getContext(),androidVersions);
