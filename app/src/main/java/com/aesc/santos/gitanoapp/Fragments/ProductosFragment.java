@@ -32,22 +32,22 @@ import java.util.ArrayList;
 public class ProductosFragment extends Fragment {
     private final String android_version_names[] = {
             "Bebidas Calientes",
-            "Bebidas Frias",
+            "Bebidas Frías",
             "Bebidas Naturales",
             "Desayunos",
-            "Clasicos",
-            "healthy",
-            "postres"
+            "Clásicos",
+            "Healthy",
+            "Postres"
     };
 
     private final String android_image_urls[] = {
-            "http://adrax.hol.es/img_caffe/p_brazo_gitano.png",
-            "http://adrax.hol.es/img_caffe/p_brownie.png",
-            "http://adrax.hol.es/img_caffe/p_galletas.png",
-            "http://adrax.hol.es/img_caffe/p_gipsy.png",
-            "http://adrax.hol.es/img_caffe/p_naked_cake_ch.png",
-            "http://adrax.hol.es/img_caffe/p_pastel_de_moka.png",
-            "http://adrax.hol.es/img_caffe/p_pie_de_queso.png"
+            "http://adrax.hol.es/img_caffe/Bebidas%20Calientes/Americano.png",
+            "http://adrax.hol.es/img_caffe/Bebidas%20Frias/Dream%20Granita.png",
+            "http://adrax.hol.es/img_caffe/Cla%CC%81sicos/Croissant.png",
+            "http://adrax.hol.es/img_caffe/Desayunos/Bocadillo.png",
+            "http://adrax.hol.es/img_caffe/Healthy/Ce%CC%81sar%20Wrap.png",
+            "http://adrax.hol.es/img_caffe/Naturals/Booster.png",
+            "http://adrax.hol.es/img_caffe/Postres/Galletas.png"
     };
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
